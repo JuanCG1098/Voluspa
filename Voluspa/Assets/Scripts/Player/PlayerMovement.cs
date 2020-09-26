@@ -23,9 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
         // Swap direction of sprite depending on walk direction
         if (inputX > 0)
-            transform.localScale = new Vector3(-2.0f, 2.0f, 1.0f);
+            transform.localScale = new Vector3(-1.5f, 1.5f, 1.0f);
         else if (inputX < 0)
-            transform.localScale = new Vector3(2.0f, 2.0f, 1.0f);
+            transform.localScale = new Vector3(1.5f, 1.5f, 1.0f);
 
         if (Input.GetButtonDown("Jump"))
         {
