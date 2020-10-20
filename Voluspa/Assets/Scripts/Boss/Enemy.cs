@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +7,9 @@ public class Enemy : MonoBehaviour
 {
     public Animator animator;
 
-    public int maxHealth = 100;
+    public int maxHealth = 500;
     int currentHealth;
+    public bool tookDamage = false;
     void Start()
     {
         currentHealth = maxHealth; 
@@ -15,15 +17,23 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        tookDamage = true;
+        Debug.Log("Boss recibe daño ." + tookDamage);
 
         // Play hurt animation
         animator.SetTrigger("Hurt");
 
-        if(currentHealth <= 0)
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
         {
             Die();
         }
+    }
+
+    private void StopCoroutine(object v)
+    {
+        throw new NotImplementedException();
     }
 
     void Die()
@@ -34,7 +44,7 @@ public class Enemy : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         // Disable the enemy
-        GetComponent<Collider2D>().enabled = true;
+        GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
     }
 }

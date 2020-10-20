@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
+    - Assets/Imports/Bandits - Pixel Art/Animations/Light Bandit/LightBandit_AnimController.controller
+    - Assets/Scripts/Boss/BossWeapon.cs
+    - Assets/Scripts/Boss/Enemy.cs
     - 
-    m_Values: 01
+    m_Values: 01010101
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 

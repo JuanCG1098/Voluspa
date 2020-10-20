@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public int attackDamage = 40;
 
-    public float attackRate = 2f;
+    public float attackRate = 10f;
     float nextAttackTime = 0f; 
 
     void Update()
@@ -24,7 +24,6 @@ public class PlayerCombat : MonoBehaviour
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
-
         }
     }
 
@@ -39,6 +38,7 @@ public class PlayerCombat : MonoBehaviour
         //  Damage them
         foreach(Collider2D enemy in hitEnemies)
         {
+            Debug.Log("We hit" + enemy.name);
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
